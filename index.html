@@ -372,10 +372,37 @@
             display: none;
         }
 
+        /* Close X Button */
+        .close-modal-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(15, 44, 89, 0.08);
+            color: var(--logo-blue);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .close-modal-btn:hover {
+            background: var(--logo-gold);
+            color: var(--logo-blue);
+            transform: scale(1.1);
+        }
+
         .modal-content-box h3 {
             color: var(--logo-blue);
             margin-bottom: 20px;
             font-size: 26px;
+            padding-right: 40px; /* რომ X-ს არ დაედოს სათაური */
         }
 
         .modal-content-box p {
@@ -825,6 +852,7 @@
     <!-- Modal for Course Details -->
     <div id="courseModal">
         <div class="modal-content-box">
+            <button class="close-modal-btn" onclick="closeCourseModal()">&times;</button>
             <h3 id="modalTitle"></h3>
             <p id="modalText"></p>
         </div>
@@ -936,7 +964,7 @@
 
     <!-- Script -->
     <script>
-        console.log("საიტი წარმატებით ჩაიტვირთა სრული კონტაქტითა და მობილურისთვის გამოსწორებული მოდალით.");
+        console.log("საიტი წარმატებით ჩაიტვირთა (X ღილაკი დამატებულია).");
 
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
@@ -1026,7 +1054,12 @@
             }
         }
 
-        // დახურვა კომპიუტერზე (click) და მობილურზე (touchend)
+        function closeCourseModal() {
+            const modal = document.getElementById('courseModal');
+            modal.style.display = 'none';
+        }
+
+        // ფანჯრის გარეთ დაწკაპუნებით/შეხებით დახურვა
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('courseModal');
             if (event.target === modal) {
