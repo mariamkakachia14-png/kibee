@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>კიბე - განათლებული მომავლისკენ | საკვირაო სკოლა ფოთში</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ქართული შრიფტის დაკავშირება */
+        @font-face {
+            font-family: 'ArialGeo';
+            src: url(image/bpg_glaho.ttf);
+        }
+
+        :root {
+            --logo-blue: #0f2c59;
+            --logo-gold: #f3c623;
+            --logo-gold-hover: #e0b41b;
+            --bg-body: #f8fafc;
+            --white: #ffffff;
+            --text-main: #0f172a;
+            --gray-text: #334155;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow: 0 12px 35px -5px rgba(15, 44, 89, 0.08);
+            --radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'ArialGeo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.8;
+            font-size: 17px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header / Navbar */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--logo-gold);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--logo-blue);
+        }
+
+        .nav-socials {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        .nav-socials a {
+            color: var(--logo-blue);
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .nav-socials a:hover {
+            color: var(--logo-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-register-nav {
+            background: linear-gradient(135deg, var(--logo-gold), var(--logo-gold-hover));
+            color: var(--logo-blue) !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 700 !important;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(243, 198, 35, 0.4);
+            transition: var(--transition) !important;
+        }
+
+        .btn-register-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(243, 198, 35, 0.6);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: var(--logo-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 44, 89, 0.96), rgba(15, 44, 89, 0.90)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=80') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 160px 20px;
+            border-bottom: 6px solid var(--logo-gold);
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(243, 198, 35, 0.15);
+            color: var(--logo-gold);
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 20px;
+            border: 1px solid var(--logo-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 35px auto;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-main, .btn-outline {
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 17px;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-main {
+            background-color: var(--logo-gold);
+            color: var(--logo-blue);
+            box-shadow: 0 6px 20px rgba(243, 198, 35, 0.3);
+        }
+
+        .btn-main:hover {
+            background-color: var(--logo-gold-hover);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--logo-blue);
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+        }
+
+        .bg-light {
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--logo-blue);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--logo-gold);
+            margin: 15px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-text);
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+            font-size: 19px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Puzzle Courses Grid */
+        .puzzle-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .puzzle-card-top {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(15, 44, 89, 0.08);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .puzzle-card-top:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(15, 44, 89, 0.15);
+            border-color: var(--logo-gold);
+        }
+
+        .puzzle-img-container {
+            height: 240px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .puzzle-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .puzzle-card-top:hover .puzzle-img-container img {
+            transform: scale(1.08);
+        }
+
+        .puzzle-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .puzzle-content h3 {
+            color: var(--logo-blue);
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .puzzle-content p {
+            color: var(--gray-text);
+            font-size: 16px;
+            margin-bottom: 22px;
+        }
+
+        .details-link {
+            color: var(--logo-blue);
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .puzzle-card-top:hover .details-link {
+            color: var(--logo-gold-hover);
+            gap: 12px;
+        }
+
+        /* Modal Styles */
+        #courseModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            max-width: 950px;
+            width: 95%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            border: 3px solid var(--logo-gold);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            scrollbar-width: none; /* სქროლბარის დამალვა Firefox-ისთვის */
+        }
+
+        /* სქროლბარის დამალვა Chrome, Safari და Edge-ისთვის */
+        .modal-content-box::-webkit-scrollbar {
+            display: none;
+        }
+
+        .modal-content-box h3 {
+            color: var(--logo-blue);
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        .modal-content-box p {
+            color: var(--text-main);
+            font-size: 16px;
+            margin-bottom: 15px;
+            line-height: 1.7;
+            white-space: pre-line;
+            word-break: break-word;
+        }
+
+        /* Steps */
+        .step-card {
+            background: var(--white);
+            padding: 45px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(15, 44, 89, 0.06);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--logo-gold);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--logo-gold);
+            color: var(--logo-blue);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(243, 198, 35, 0.4);
+        }
+
+        .step-card h3 {
+            margin-top: 15px;
+            color: var(--logo-blue);
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            color: var(--gray-text);
+            font-size: 16px;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 2px solid var(--logo-gold);
+            height: 250px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Video Section */
+        .video-box {
+            text-align: center;
+            background: var(--white);
+            padding: 50px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            max-width: 700px;
+            margin: 0 auto;
+            border: 2px solid rgba(15, 44, 89, 0.08);
+        }
+
+        .video-box p {
+            color: var(--gray-text);
+            margin-bottom: 25px;
+            font-size: 19px;
+        }
+
+        .btn-fb-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1877f2;
+            color: var(--white) !important;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 17px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(24, 119, 242, 0.4);
+            transition: var(--transition);
+        }
+
+        .btn-fb-video:hover {
+            background: #145dbf;
+            transform: translateY(-3px);
+        }
+
+        /* FAQ Accordion */
+        .faq-accordion {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 20px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+            overflow: hidden;
+            border: 1px solid rgba(15, 44, 89, 0.06);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 24px 30px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--logo-blue);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--logo-gold);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 30px;
+            background: #fafbfc;
+        }
+
+        .faq-answer p {
+            padding: 18px 0 24px 0;
+            color: var(--gray-text);
+            font-size: 17px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 280px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+            color: var(--logo-gold);
+        }
+
+        /* Contact & Map */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .contact-box {
+            background: var(--white);
+            padding: 45px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 2px solid rgba(15, 44, 89, 0.06);
+        }
+
+        .contact-box p {
+            margin-bottom: 20px;
+            color: var(--gray-text);
+            font-size: 18px;
+        }
+
+        .contact-box i {
+            color: var(--logo-gold);
+            margin-right: 12px;
+        }
+
+        .contact-box a {
+            color: var(--logo-blue);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .contact-box a:hover {
+            color: var(--logo-gold);
+            text-decoration: underline;
+        }
+
+        .map-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 3px solid var(--logo-gold);
+            height: 360px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Floating Social Buttons */
+        .floating-socials {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        .float-btn {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: var(--white);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .messenger-float {
+            background: #0084ff;
+        }
+
+        .instagram-float {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+
+        .float-btn:hover {
+            transform: scale(1.12) rotate(8deg);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--logo-blue);
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+            border-top: 5px solid var(--logo-gold);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 26px;
+            margin: 0 15px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--logo-gold);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+                padding: 30px 0;
+                text-align: center;
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .hero-content h1 { font-size: 36px; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="#hero"><img src="image/logo.jpg" alt="კიბე Education Logo"></a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero">მთავარი</a></li>
+                    <li><a href="#courses">კურსები</a></li>
+                    <li><a href="#team">გუნდი</a></li>
+                    <li><a href="#steps">რეგისტრაცია</a></li>
+                    <li><a href="#gallery">გალერია</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">კონტაქტი</a></li>
+                    <li><a href="https://docs.google.com/forms/d/1VGKs17xEr7ZRrg2tf340np3ryWcC37If9-kTxFYN8Qk/viewform" target="_blank" class="btn-register-nav"><i class="fa-solid fa-file-excel"></i> რეგისტრაცია</a></li>
+                    <li class="nav-socials">
+                        <a href="https://www.facebook.com/share/19aeU3UutU/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/kibe.education/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <div class="hero-badge">📍 ქალაქი ფოთი</div>
+            <h1>კიბე - განათლებული მომავლისკენ</h1>
+            <p>საკვირაო სკოლა 5-დან 10-ე კლასის ჩათვლით მოსწავლეებისთვის. ემოციური ინტელექტი, კრიტიკული აზროვნება და თვითშეფასების ამაღლება ბავშვის ჰარმონიული განვითარებისთვის!</p>
+            <div class="hero-buttons">
+                <a href="https://docs.google.com/forms/d/1VGKs17xEr7ZRrg2tf340np3ryWcC37If9-kTxFYN8Qk/viewform" target="_blank" class="btn-main"><i class="fa-solid fa-file-excel"></i> Google Forms რეგისტრაცია</a>
+                <a href="tel:+995577320025" class="btn-outline"><i class="fa-solid fa-phone"></i> +995 577 320 025</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">ძირითადი მიმართულებები და კურსები</h2>
+            
+            <div class="puzzle-grid-3">
+                <div class="puzzle-card-top puzzle-card-1" onclick="showCourseInfo('school')">
+                    <div class="puzzle-img-container">
+                        <img src="image/kkkk.jfif" alt="სკოლა">
+                    </div>
+                    <div class="puzzle-content">
+                        <div>
+                            <h3>V-VI კლასი</h3>
+                            <p>სკოლის ასაკის ბავშვებისთვის განკუთვნილი ინტერაქტიული საგანმანათლებლო პროგრამები.</p>
+                        </div>
+                        <span class="details-link">იხილეთ დეტალები <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="puzzle-card-top puzzle-card-2" onclick="showCourseInfo('kindergarten')">
+                    <div class="puzzle-img-container">
+                        <img src="image/q.jfif" alt="საბავშვო ბაღი">
+                    </div>
+                    <div class="puzzle-content">
+                        <div>
+                            <h3>VII-VIII კლასი</h3>
+                            <p>დამოუკიდებელი აზროვნება, მსჯელობა, კომუნიკაცია და გუნდური მუშაობის უნარები.</p>
+                        </div>
+                        <span class="details-link">იხილეთ დეტალები <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="puzzle-card-top puzzle-card-3" onclick="showCourseInfo('sunday')">
+                    <div class="puzzle-img-container">
+                        <img src="image/d.jfif" alt="საკვირაო სკოლა">
+                    </div>
+                    <div class="puzzle-content">
+                        <div>
+                            <h3>IX-X კლასი</h3>
+                            <p>პროფესიული ორიენტაცია, კრიტიკული აზროვნება და თანამედროვე ტექნოლოგიები.</p>
+                        </div>
+                        <span class="details-link">იხილეთ დეტალები <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="bg-white py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 container">
+            <div class="mb-10 max-w-2xl">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em]" style="color: var(--logo-gold);">ჩვენი გუნდი</p>
+                <h2 class="font-display mt-2 text-3xl font-bold" style="color: var(--logo-blue);">გაიცანით ჩვენი გუნდი</h2>
+                <p class="mt-3 text-lg" style="color: var(--gray-text);">პედაგოგები და პროფესიონალები, რომლებიც მოსწავლეებს ყოველ საფეხურზე ეხმარებიან.</p>
+            </div>
+            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-5" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                <figure class="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-navy/5" style="border-radius: 20px; box-shadow: var(--shadow); border: 1px solid rgba(15, 44, 89, 0.08);">
+                    <div class="flex aspect-[417/590] items-center" style="background: var(--logo-blue); height: 260px; display: flex; align-items: center; justify-content: center;">
+                        <img src="image/nino kvaracxelia.jfif" alt="ნინო კვარაცხელია" loading="lazy" class="h-full w-full object-contain" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <figcaption class="p-4" style="padding: 20px;">
+                        <p class="font-display font-bold" style="color: var(--logo-blue); font-size: 18px; margin-bottom: 8px;">ნინო კვარაცხელია</p>
+                        <p class="mt-1 text-sm" style="color: var(--gray-text); font-size: 14px;">ხელოვნებათმცოდნე, პროფესიული განათლების მასწავლებელი, ბათუმის სახელმწიფო საზღვაო აკადემიის ფოთის ფილიალის ხარისხის უზრუნველყოფის მენეჯერი.</p>
+                    </figcaption>
+                </figure>
+                
+                <figure class="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-navy/5" style="border-radius: 20px; box-shadow: var(--shadow); border: 1px solid rgba(15, 44, 89, 0.08);">
+                    <div class="flex aspect-[417/590] items-center" style="background: var(--logo-blue); height: 260px; display: flex; align-items: center; justify-content: center;">
+                        <img src="image/giorgi bakhbava.jfif" alt="გიორგი ბახბავა" loading="lazy" class="h-full w-full object-contain" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <figcaption class="p-4" style="padding: 20px;">
+                        <p class="font-display font-bold" style="color: var(--logo-blue); font-size: 18px; margin-bottom: 8px;">გიორგი ბახბაია</p>
+                        <p class="mt-1 text-sm" style="color: var(--gray-text); font-size: 14px;">ფრილანსერი დეველოპერი, Google-ის სერტიფიცირებული AI სპეციალისტი, მასწავლებელი.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-navy/5" style="border-radius: 20px; box-shadow: var(--shadow); border: 1px solid rgba(15, 44, 89, 0.08);">
+                    <div class="flex aspect-[417/590] items-center" style="background: var(--logo-blue); height: 260px; display: flex; align-items: center; justify-content: center;">
+                        <img src="image/giorgi seskuria.jfif" alt="გიორგი სესკურია" loading="lazy" class="h-full w-full object-contain" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <figcaption class="p-4" style="padding: 20px;">
+                        <p class="font-display font-bold" style="color: var(--logo-blue); font-size: 18px; margin-bottom: 8px;">გიორგი სესკურია</p>
+                        <p class="mt-1 text-sm" style="color: var(--gray-text); font-size: 14px;">ფოთის ინტელექტუალების თავმჯდომარე, სასკოლო ინტელექტუალური თამაშებისა და ფოთის ღია ჩემპიონატის ორგანიზატორი.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-navy/5" style="border-radius: 20px; box-shadow: var(--shadow); border: 1px solid rgba(15, 44, 89, 0.08);">
+                    <div class="flex aspect-[417/590] items-center" style="background: var(--logo-blue); height: 260px; display: flex; align-items: center; justify-content: center;">
+                        <img src="image/bakar eragia.jfif" alt="ბაქარ ერაგია" loading="lazy" class="h-full w-full object-contain" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <figcaption class="p-4" style="padding: 20px;">
+                        <p class="font-display font-bold" style="color: var(--logo-blue); font-size: 18px; margin-bottom: 8px;">ბაქარ ერაგია</p>
+                        <p class="mt-1 text-sm" style="color: var(--gray-text); font-size: 14px;">ფოთის პირველი სკოლის დირექტორი, მასწავლებელი.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-navy/5" style="border-radius: 20px; box-shadow: var(--shadow); border: 1px solid rgba(15, 44, 89, 0.08);">
+                    <div class="flex aspect-[417/590] items-center" style="background: var(--logo-blue); height: 260px; display: flex; align-items: center; justify-content: center;">
+                        <img src="image/sesili eragia.jfif" alt="სესილი ერაგია" loading="lazy" class="h-full w-full object-contain" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <figcaption class="p-4" style="padding: 20px;">
+                        <p class="font-display font-bold" style="color: var(--logo-blue); font-size: 18px; margin-bottom: 8px;">სესილი ერაგია</p>
+                        <p class="mt-1 text-sm" style="color: var(--gray-text); font-size: 14px;">გამომცემლობა „პეგასის“ მენეჯერი, სახელმწიფო და ნიკო ნიკოლაძის სახელობის სტიპენდიატი, პრემია „ამირანის“ ლაურეატი (პროზა).</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Course Details -->
+    <div id="courseModal">
+        <div class="modal-content-box">
+            <h3 id="modalTitle"></h3>
+            <p id="modalText"></p>
+        </div>
+    </div>
+
+    <!-- Steps -->
+    <section id="steps" class="section">
+        <div class="container">
+            <h2 class="section-title">როგორ გავხდე მონაწილე?</h2>
+            <p class="section-subtitle">გაიარე პროექტში ინტეგრაციის მარტივი და მკაფიო ეტაპები.</p>
+            
+            <div class="grid-3">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>შეავსე Google Form</h3>
+                    <p>გადადი ბმულზე და დააფიქსირე შენი მონაცემები სარეგისტრაციო ფორმაში.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>გაიარე ტესტირება</h3>
+                    <p>მიიღე მონაწილეობა შესარჩევ ტესტირებაში ცოდნის გამოსავლენად.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>მოხვდი ჯგუფში</h3>
+                    <p>საუკეთესო შედეგების მქონე მოსწავლეები გახდებიან ძირითადი ნაკადის წევრები.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">ფოტო გალერია</h2>
+            <p class="section-subtitle">ჩვენი ყოველდღიური აქტივობები, შეხვედრები და ემოციები.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="image/photo1.jpg" alt="გალერია 1"></div>
+                <div class="gallery-item"><img src="image/photo2.jpg" alt="გალერია 2"></div>
+                <div class="gallery-item"><img src="image/photo3.jpg" alt="გალერია 3"></div>
+                <div class="gallery-item"><img src="image/5.jpg" alt="გალერია 4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">ვიდეო კოლაჟი</h2>
+            <p class="section-subtitle">ნახეთ ჩვენი ვიდეო რეპორტაჟი და სიუჟეტები ფეისბუქზე.</p>
+            
+            <div class="video-box">
+                <i class="fa-solid fa-video" style="color: #1877f2; font-size: 38px; margin-bottom: 15px; display: block;"></i>
+                <p>ჩვენი პროექტის ვიდეო მიმოხილვის სანახავად გადადით ბმულზე:</p>
+                <a href="https://www.facebook.com/share/v/1AhRBiwpXg/?mibextid=wwXIfr" target="_blank" class="btn-fb-video">
+                    <i class="fa-brands fa-facebook"></i> ვიდეოს ნახვა Facebook-ზე
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="section-title">ხშირად დასმული კითხვები (FAQ)</h2>
+            <p class="section-subtitle">ყველაფერი, რაც პროექტის შესახებ უნდა იცოდეთ.</p>
+            
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">როგორ შემიძლია კონკურსზე დარეგისტრირება? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer"><p>დააჭირეთ „რეგისტრაცია“ ღილაკს, რომელიც გადაგამართავთ ოფიციალურ სარეგისტრაციო ფორმაზე, შეავსეთ მონაცემები და გაიარეთ ტესტირება.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">რომელი კლასების მოსწავლეებისთვისაა პროექტი? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer"><p>პროექტი განკუთვნილია ქალაქ ფოთში მცხოვრები 5-დან 10-ე კლასის ჩათვლით მოსწავლეებისთვის.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">რა ფორმატით ტარდება მეცადინეობები? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer"><p>შეხვედრები ტარდება კვირა დღეებსა და შესაბამის პერიოდებში, თვეში მინიმუმ 7 აქტივობის ფარგლებში.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">კონტაქტი და მდებარეობა</h2>
+            <p class="section-subtitle">გვეწვიეთ ან დაგვიკავშირდით ნებისმიერ დროს.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <p><i class="fa-solid fa-location-dot"></i> <strong>მისამართი:</strong> ქალაქი ფოთი</p>
+                    <p><i class="fa-solid fa-envelope"></i> <strong>ელ-ფოსტა:</strong> info@kibe.education</p>
+                    <p><i class="fa-solid fa-phone"></i> <strong>ტელეფონი:</strong> <a href="tel:+995577320025">+995 577 320 025</a></p>
+                    <p><i class="fa-solid fa-clock"></i> <strong>სამუშაო საათები:</strong> ორშაბათი - შაბათი: 10:00 - 18:00</p>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23819.67491792683!2d41.6548775!3d42.1462002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4067a216447c2295%3A0x6b6c221448dbbb3d!2sPoti!5e0!3m2!1ska!2sge!4v1650000000000!5m2!1ska!2sge" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Social Buttons -->
+    <div class="floating-socials">
+        <a href="https://www.instagram.com/kibe.education/" target="_blank" class="float-btn instagram-float" title="მოგვწერეთ Instagram-ზე">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/share/19aeU3UutU/?mibextid=wwXIfr" target="_blank" class="float-btn messenger-float" title="მოგვწერეთ Messenger-ში">
+            <i class="fa-brands fa-facebook-messenger"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/19aeU3UutU/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/kibe.education/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        console.log("საიტი წარმატებით ჩაიტვირთა განახლებული გუნდის სექციით.");
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        mobileMenu.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                faqItems.forEach(other => { if (other !== item) other.classList.remove('active'); });
+                item.classList.toggle('active');
+            });
+        });
+
+        // კურსების დეტალური ინფორმაციის მონაცემები
+        const courseDetails = {
+            'school': {
+                title: 'V-VI კლასის საგანმანათლებლო პროგრამა',
+                text: `„კიბე - განათლებული მომავლისკენ“ V-VI კლასების მოსწავლეებს სთავაზობს პროგრამას, რომელიც ბავშვის განვითარებას მხოლოდ აკადემიურ ცოდნაზე არ ამყარებს.
+ამ ასაკში განსაკუთრებით მნიშვნელოვანია ინტერესების გაღვივება, საკუთარი აზრის თავისუფლად გამოხატვა, მსჯელობა და კომუნიკაცია.
+
+პროგრამა მოიცავს:
+. მხატვრული ლიტერატურის კითხვა და განხილვა: პერსონაჟების გაანალიზება და მსჯელობა.
+. ფილმებისა და სპექტაკლების ჩვენება და განხილვა: ნანახის გააზრება და აზრის გამოთქმა.
+. ინტელექტუალური ვიქტორინები და სამაგიდო თამაშები: ლოგიკური და კრიტიკული აზროვნება.
+. მეტყველებისა და საჯარო საუბრის წრე: თავდაჯერებული საუბარი აუდიტორიის წინაშე.
+. საგანმანათლებლო ექსკურსია წლის განმავლობაში.
+
+ხანგრძლივობა: ოქტომბრიდან ივნისის ჩათვლით (9 თვე - 63 შეხვედრა).
+საფასური: 120 ლარი თვეში.
+ფასდაკლებები: 
+. სრული 9-თვიანი კურსის ერთიანად გადახდისას - 20% ფასდაკლება;
+. დედმამიშვილების მონაწილეობისას - 30% ფასდაკლება.`
+            },
+            'kindergarten': {
+                title: 'VII-VIII კლასის საგანმანათლებლო პროგრამა',
+                text: `„კიბე - განათლებული მომავლისკენ“ VII-VIII კლასების მოსწავლეებს სთავაზობს პროგრამას, რომელიც ავითარებს დამოუკიდებელ აზროვნებას, მსჯელობას, კომუნიკაციასა და გუნდურ მუშაობას.
+
+პროგრამა შედგება სავალდებულო ძირითადი ბლოკისა და არჩევითი მიმართულებებისგან:
+
+სავალდებულო ძირითადი ბლოკი:
+. წიგნის კითხვა და განხილვა (თვეში ერთი წიგნი - ერთი საერთო დისკუსია)
+. ფილმისა და სპექტაკლის ჩვენება - განხილვა
+. ინტელექტუალური და სამაგიდო თამაშები („რა? სად? როდის?“, „ბრეინ-რინგი“, „ერუდიტი“, „ჯეპარდი“)
+. დებატების სკოლა (წლის ბოლოს გუნდური დებატები)
+. სალონური საუბრები - შეხვედრები მოწვეულ ცნობილ ადამიანებთან (2 შეხვედრა წელიწადში)
+
+არჩევითი მიმართულებები (სურვილისამებრ - 30 ლარი თვეში):
+. ონლაინ-მედიის კურსი (ვიდეოების შექმნა Facebook, YouTube და TikTok-ისთვის)
+. პროგრამირება და ხელოვნური ინტელექტის გამოყენება
+. გრაფიკული დიზაინი
+
+ძირითადი პროგრამის ღირებულება: 120 ლარი თვეში.
+ფასდაკლებები: 9-თვიანი კურსის ერთიანად გადახდისას - 20%, ხოლო დედმამიშვილებისთვის - 30%.`
+            },
+            'sunday': {
+                title: 'IX-X კლასის საგანმანათლებლო პროგრამა',
+                text: `„კიბე - განათლებული მომავლისკენ“ IX-X კლასების მოსწავლეებს სთავაზობს პროგრამას, რომელიც ეხმარება მათ საკუთარი ინტერესებისა და მომავლის უკეთ გააზრებაში.
+
+პროგრამა შედგება სავალდებულო ძირითადი ბლოკისა და არჩევითი მიმართულებებისგან:
+
+სავალდებულო ძირითადი ბლოკი:
+. წიგნის კითხვა და განხილვა
+. ფილმისა და სპექტაკლის ჩვენება - განხილვა
+. ინტელექტკლუბი და სტრატეგიული სამაგიდო თამაშები (კატანი, დიქსითი, რისკი და ა.შ.)
+. პროფესიული ორიენტაცია და მეწარმეობის საფუძვლები (ძალიან პრაქტიკული დავალებები და მცირე პროექტები)
+. სალონური საუბრები მოწვეულ სტუმრებთან
+
+არჩევითი მიმართულებები (სურვილისამებრ - 30 ლარი თვეში):
+. ონლაინ-მედიის კურსი
+. პროგრამირება და ხელოვნური ინტელექტი (მარტივი საიტების შექმნა)
+. გრაფიკული დიზაინი
+
+ძირითადი პროგრამის ღირებულება: 120 ლარი თვეში.
+ფასდაკლებები: 9-თვიანი კურსის ერთიანად გადახდისას - 20%, ხოლო დედმამიშვილებისთვის - 30%.`
+            }
+        };
+
+        function showCourseInfo(courseType) {
+            const modal = document.getElementById('courseModal');
+            const titleEl = document.getElementById('modalTitle');
+            const textEl = document.getElementById('modalText');
+            
+            if (courseDetails[courseType]) {
+                titleEl.innerText = courseDetails[courseType].title;
+                textEl.innerText = courseDetails[courseType].text;
+                modal.style.display = 'flex';
+            }
+        }
+
+        // მოდალის დახურვა ფონზე დაწკაპუნებით
+        window.onclick = function(event) {
+            const modal = document.getElementById('courseModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
