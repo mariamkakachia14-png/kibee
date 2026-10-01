@@ -936,7 +936,7 @@
 
     <!-- Script -->
     <script>
-        console.log("საიტი წარმატებით ჩაიტვირთა ზუსტი მისამართით და რუკით.");
+        console.log("საიტი წარმატებით ჩაიტვირთა სრული კონტაქტითა და მობილურისთვის გამოსწორებული მოდალით.");
 
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
@@ -1026,12 +1026,20 @@
             }
         }
 
-        window.onclick = function(event) {
+        // დახურვა კომპიუტერზე (click) და მობილურზე (touchend)
+        window.addEventListener('click', function(event) {
             const modal = document.getElementById('courseModal');
             if (event.target === modal) {
                 modal.style.display = 'none';
             }
-        };
+        });
+
+        window.addEventListener('touchend', function(event) {
+            const modal = document.getElementById('courseModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
