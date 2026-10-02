@@ -1,2522 +1,1304 @@
 <!DOCTYPE html>
-
 <html lang="ka">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>კიბე - განათლებული მომავლისკენ | საკვირაო სკოლა ფოთში</title>
-
 <link rel="icon" type="image/jpeg" href="image/logo.jpg">
-
-<link rel="stylesheet" href="fonts.css">
-
+<!-- ქართული შრიფტის ჩატვირთვა Google Fonts-იდან (Noto Sans Georgian) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
+        /* ქართული შრიფტის დაკავშირება */
+        @font-face {
+            font-family: 'ArialGeo';
+            src: url('image/bpg_glaho.ttf'); /* მიუთითე ზუსტი სახელი, თუ სხვა გაფართოებაა */
+        }
 
+        body {
+            font-family: 'ArialGeo', sans-serif;
+            background-color: #0f2c59; /* ნავის ფერი */
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
 :root {
-
 --logo-blue: #0f2c59;
-
 --logo-gold: #f3c623;
-
 --logo-gold-hover: #e0b41b;
-
 --bg-body: #f8fafc;
-
 --white: #ffffff;
-
 --text-main: #0f172a;
-
 --gray-text: #334155;
-
 --nav-bg: rgba(255, 255, 255, 0.95);
-
 --card-bg: #ffffff;
-
 --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-
 --shadow: 0 12px 35px -5px rgba(15, 44, 89, 0.08);
-
 --radius: 20px;
-
 }
-
-
 
 [data-theme="dark"] {
-
 --logo-blue: #38bdf8;
-
 --logo-gold: #f3c623;
-
 --logo-gold-hover: #e0b41b;
-
 --bg-body: #0b1329;
-
 --white: #1e293b;
-
 --text-main: #f8fafc;
-
 --gray-text: #94a3b8;
-
 --nav-bg: rgba(15, 23, 42, 0.95);
-
 --card-bg: #1e293b;
-
 --shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.3);
-
 }
-
-
 
 * {
-
 margin: 0;
-
 padding: 0;
-
 box-sizing: border-box;
-
-font-family: 'ArialGeo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 scroll-behavior: smooth;
-
 }
-
-
 
 body {
-
 background-color: var(--bg-body);
-
 color: var(--text-main);
-
 line-height: 1.8;
-
 font-size: 17px;
-
 overflow-x: hidden;
-
 transition: background-color 0.3s ease, color 0.3s ease;
-
 }
-
-
 
 .container {
-
 width: 90%;
-
 max-width: 1200px;
-
 margin: 0 auto;
-
 }
-
-
 
 /* Header / Navbar */
-
 header {
-
 background: var(--nav-bg);
-
 backdrop-filter: blur(15px);
-
 position: sticky;
-
 top: 0;
-
 z-index: 1000;
-
 box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-
 border-bottom: 3px solid var(--logo-gold);
-
 transition: background 0.3s ease;
-
 }
-
-
 
 .nav-container {
-
 display: flex;
-
 justify-content: space-between;
-
 align-items: center;
-
 padding: 12px 0;
-
 }
-
-
 
 .logo img {
-
 height: 50px;
-
 width: auto;
-
 object-fit: contain;
-
 display: block;
-
 border-radius: 8px;
-
 transition: var(--transition);
-
 }
-
-
 
 .logo img:hover {
-
 transform: scale(1.05);
-
 }
-
-
 
 .nav-links {
-
 list-style: none;
-
 display: flex;
-
 gap: 18px;
-
 align-items: center;
-
 }
-
-
 
 .nav-links a {
-
 text-decoration: none;
-
 color: var(--text-main);
-
 font-weight: 600;
-
 font-size: 16px;
-
 transition: var(--transition);
-
 }
-
-
 
 .nav-links a:hover {
-
 color: var(--logo-gold);
-
 }
-
-
 
 .mobile-socials {
-
 display: none;
-
 gap: 15px;
-
 align-items: center;
-
 margin-top: 15px;
-
 padding-top: 15px;
-
 border-top: 1px solid rgba(150,150,150,0.2);
-
 }
-
-
 
 .mobile-socials a {
-
 color: var(--logo-blue);
-
 font-size: 24px;
-
 transition: var(--transition);
-
 }
-
-
 
 .mobile-socials a:hover {
-
 color: var(--logo-gold);
-
 }
-
-
 
 .header-controls {
-
 display: flex;
-
 align-items: center;
-
 gap: 10px;
-
 }
-
-
 
 .control-btn {
-
 background: rgba(15, 44, 89, 0.08);
-
 border: none;
-
 color: var(--text-main);
-
 padding: 8px 12px;
-
 border-radius: 8px;
-
 cursor: pointer;
-
 font-weight: 600;
-
 font-size: 14px;
-
 display: flex;
-
 align-items: center;
-
 gap: 6px;
-
 transition: var(--transition);
-
 }
-
-
 
 .control-btn:hover {
-
 background: var(--logo-gold);
-
 color: var(--logo-blue);
-
 }
-
-
 
 .btn-register-nav {
-
 background: linear-gradient(135deg, var(--logo-gold), var(--logo-gold-hover));
-
 color: #0f2c59 !important;
-
 padding: 10px 22px;
-
 border-radius: 50px;
-
 font-weight: 700 !important;
-
 font-size: 16px;
-
 box-shadow: 0 4px 15px rgba(243, 198, 35, 0.4);
-
 transition: var(--transition) !important;
-
 text-decoration: none !important;
-
 border-bottom: 3px solid #ff7f50 !important;
-
 display: inline-flex;
-
 align-items: center;
-
 gap: 8px;
-
 }
-
-
 
 .btn-register-nav:hover {
-
 transform: translateY(-2px);
-
 box-shadow: 0 6px 20px rgba(243, 198, 35, 0.6);
-
 }
-
-
 
 .menu-toggle {
-
 display: none;
-
 font-size: 26px;
-
 cursor: pointer;
-
 color: var(--text-main);
-
 }
-
-
 
 /* Hero Section */
-
 .hero {
-
 background: linear-gradient(135deg, rgba(15, 44, 89, 0.85), rgba(15, 44, 89, 0.75)), url('image/Back.jfif') center/cover no-repeat;
-
 color: #ffffff;
-
 border-bottom: 6px solid var(--logo-gold);
-
 position: relative;
-
 }
-
-
 
 .relative { position: relative; }
-
 .mx-auto { margin-left: auto; margin-right: auto; }
-
 .grid { display: grid; }
-
 .max-w-7xl { max-width: 80rem; }
-
 .gap-10 { gap: 2.5rem; }
-
 .px-4 { padding-left: 1rem; padding-right: 1rem; }
-
 .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
-
 .inline-flex { display: inline-flex; }
-
 .items-center { align-items: center; }
-
 .justify-center { justify-content: center; }
-
 .rounded-full { border-radius: 9999px; }
-
 .bg-white\/10 { background-color: rgba(255, 255, 255, 0.1); }
-
 .py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
-
 .text-sm { font-size: 0.875rem; }
-
 .font-medium { font-weight: 500; }
-
 .text-gold-300 { color: #fde047; }
-
 .ring-1 { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15); }
-
 .mt-6 { margin-top: 1.5rem; }
-
 .text-4xl { font-size: 2.25rem; }
-
 .font-extrabold { font-weight: 800; }
-
 .leading-tight { line-height: 1.25; }
-
 .text-gold { color: var(--logo-gold); }
-
 .max-w-xl { max-width: 36rem; }
-
 .text-lg { font-size: 1.125rem; }
-
 .text-white\/80 { color: rgba(255, 255, 255, 0.8); }
-
 .mt-8 { margin-top: 2rem; }
-
-.flex-wrap { flex-wrap: wrap; }
-
-.gap-3 { gap: 0.75rem; }
-
-.bg-gold { background-color: var(--logo-gold); }
-
-.text-ink { color: var(--logo-blue); }
-
-.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-
-.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-
-.font-semibold { font-weight: 600; }
-
-.shadow-\[0_4px_0_0_\#b57f00\] { box-shadow: 0 4px 0 0 #b57f00; }
-
-.transition { transition: all 0.3s ease; }
-
-.hover\:bg-gold-300:hover { background-color: #fde047; }
-
-.border-2 { border-width: 2px; }
-
-.border-current { border-color: currentColor; }
-
-.hover\:bg-white\/10:hover { background-color: rgba(255, 255, 255, 0.1); }
-
-.text-white { color: #ffffff; }
-
 .hidden { display: none; }
-
 .self-end { align-self: flex-end; }
-
 .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
 .p-4 { padding: 1rem; }
-
 .backdrop-blur { backdrop-filter: blur(10px); }
-
 .text-3xl { font-size: 1.875rem; }
-
 .font-bold { font-weight: 700; }
-
 .mt-1 { margin-top: 0.25rem; }
-
 .text-white\/75 { color: rgba(255, 255, 255, 0.75); }
-
 .rounded-2xl { border-radius: 1rem; }
 
-
-
-/* Hero buttons wrapper for strict inline layout */
-
+/* მკაცრად ერთ ხაზზე (Inline) განლაგება მობილურზეც კი */
 .hero-actions-wrapper {
-
 display: flex;
-
-flex-wrap: wrap;
-
+flex-direction: row;
+flex-wrap: nowrap;
 align-items: center;
-
-gap: 15px;
-
+gap: 12px;
+overflow-x: auto;
+width: 100%;
+padding-bottom: 5px;
 }
 
+.hero-actions-wrapper::-webkit-scrollbar {
+display: none;
+}
 
+.hero-btn-main {
+background: var(--logo-gold);
+color: #0f2c59;
+padding: 10px 18px;
+border-radius: 50px;
+font-weight: 700;
+font-size: 14px;
+text-decoration: none;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+box-shadow: 0 4px 0 0 #b57f00;
+white-space: nowrap;
+flex-shrink: 0;
+transition: all 0.3s ease;
+}
+
+.hero-phone-main {
+color: #ffffff;
+text-decoration: none;
+font-weight: 600;
+font-size: 15px;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+white-space: nowrap;
+flex-shrink: 0;
+transition: var(--transition);
+}
 
 @media (min-width: 640px) {
-
 .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-
 .sm\:py-28 { padding-top: 7rem; padding-bottom: 7rem; }
-
 .sm\:text-6xl { font-size: 3.75rem; }
-
+.hero-btn-main { padding: 12px 28px; font-size: 16px; }
+.hero-phone-main { font-size: 18px; }
 }
-
 @media (min-width: 1024px) {
-
 .lg\:grid-cols-\[1\.2fr_1fr\] { grid-template-columns: 1.2fr 1fr; }
-
 .lg\:block { display: block; }
-
 }
-
-
 
 /* Sections */
-
 .section {
-
 padding: 100px 0;
-
 }
-
-
 
 .bg-light {
-
 background-color: var(--card-bg);
-
 transition: background-color 0.3s ease;
-
 }
-
-
 
 .section-title {
-
 text-align: center;
-
 font-size: 40px;
-
 font-weight: 800;
-
 margin-bottom: 15px;
-
 color: var(--text-main);
-
 position: relative;
-
 }
-
-
 
 .section-title::after {
-
 content: '';
-
 display: block;
-
 width: 80px;
-
 height: 4px;
-
 background: var(--logo-gold);
-
 margin: 15px auto 0 auto;
-
 border-radius: 2px;
-
 }
-
-
 
 .section-subtitle {
-
 text-align: center;
-
 color: var(--gray-text);
-
 max-width: 750px;
-
 margin: 0 auto 50px auto;
-
 font-size: 19px;
-
 }
-
-
 
 .grid-3 {
-
 display: grid;
-
 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
 gap: 30px;
-
 }
-
-
 
 /* Programs Grid Styling */
-
 .programs-grid {
-
 display: grid;
-
 grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
 gap: 30px;
-
 margin-top: 50px;
-
 }
-
-
 
 .program-card {
-
 background: var(--card-bg);
-
 border-radius: var(--radius);
-
 overflow: hidden;
-
 box-shadow: var(--shadow);
-
 border: 1px solid rgba(150, 150, 150, 0.1);
-
 cursor: pointer;
-
 transition: var(--transition);
-
 display: flex;
-
 flex-direction: column;
-
 }
-
-
 
 .program-card:hover {
-
 transform: translateY(-8px);
-
 box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-
 border-color: var(--logo-gold);
-
 }
-
-
 
 .program-card img {
-
 height: 240px;
-
 width: 100%;
-
 object-fit: cover;
-
 transition: transform 0.6s ease;
-
 }
-
-
 
 .program-card:hover img {
-
 transform: scale(1.08);
-
 }
-
-
 
 .program-content {
-
 padding: 30px;
-
 display: flex;
-
 flex-direction: column;
-
 justify-content: space-between;
-
 flex-grow: 1;
-
 }
-
-
 
 .program-content h3 {
-
 color: var(--text-main);
-
 font-size: 24px;
-
 margin-bottom: 12px;
-
 }
-
-
 
 .program-content p {
-
 color: var(--gray-text);
-
 font-size: 16px;
-
 margin-bottom: 22px;
-
 }
-
-
 
 .btn-details {
-
 color: var(--logo-gold);
-
 font-weight: 700;
-
 font-size: 16px;
-
 display: inline-flex;
-
 align-items: center;
-
 gap: 8px;
-
 transition: var(--transition);
-
 background: none;
-
 border: none;
-
 cursor: pointer;
-
 padding: 0;
-
 text-align: left;
-
 }
-
-
 
 .program-card:hover .btn-details {
-
 color: var(--logo-gold-hover);
-
 gap: 12px;
-
 }
-
-
 
 /* Team Hover Animation */
-
 .team-grid figure {
-
 background: var(--card-bg);
-
 border-radius: var(--radius);
-
 overflow: hidden;
-
 box-shadow: var(--shadow);
-
 border: 1px solid rgba(150, 150, 150, 0.1);
-
 transition: var(--transition);
-
 }
-
-
 
 .team-grid figure:hover {
-
 transform: translateY(-8px);
-
 box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-
 border-color: var(--logo-gold);
-
 }
-
-
 
 /* Modal Styles */
-
 .modal {
-
 display: none;
-
 position: fixed;
-
 top: 0;
-
 left: 0;
-
 width: 100%;
-
 height: 100%;
-
 background: rgba(0,0,0,0.6);
-
 z-index: 2000;
-
 justify-content: center;
-
 align-items: center;
-
 padding: 20px;
-
 }
-
-
 
 .modal-content-box {
-
 background: var(--card-bg);
-
 color: var(--text-main);
-
 padding: 40px;
-
 border-radius: var(--radius);
-
 max-width: 950px;
-
 width: 95%;
-
 max-height: 85vh;
-
 overflow-y: auto;
-
 position: relative;
-
 box-shadow: 0 25px 50px rgba(0,0,0,0.25);
-
 border: 3px solid var(--logo-gold);
-
 word-wrap: break-word;
-
 overflow-wrap: break-word;
-
 scrollbar-width: none;
-
 }
-
-
 
 .modal-content-box::-webkit-scrollbar {
-
 display: none;
-
 }
-
-
 
 .close-modal-btn {
-
 position: absolute;
-
 top: 20px;
-
 right: 20px;
-
 background: rgba(150, 150, 150, 0.2);
-
 color: var(--text-main);
-
 border: none;
-
 width: 40px;
-
 height: 40px;
-
 border-radius: 50%;
-
 font-size: 20px;
-
 font-weight: bold;
-
 cursor: pointer;
-
 display: flex;
-
 align-items: center;
-
 justify-content: center;
-
 transition: var(--transition);
-
 }
-
-
 
 .close-modal-btn:hover {
-
 background: var(--logo-gold);
-
 color: var(--logo-blue);
-
 transform: scale(1.1);
-
 }
-
-
 
 .modal-content-box h3 {
-
 color: var(--text-main);
-
 margin-bottom: 12px;
-
 font-size: 28px;
-
 padding-right: 40px;
-
 }
-
-
 
 .modal-title-divider {
-
 width: 100%;
-
 height: 3px;
-
 background-color: #ff7f50;
-
 margin-bottom: 20px;
-
 border-radius: 2px;
-
 }
-
-
 
 .modal-content-box p {
-
 color: var(--gray-text);
-
 font-size: 18px;
-
 margin-bottom: 16px;
-
 line-height: 1.8;
-
 }
-
-
 
 .modal-content-box ul {
-
 margin: 15px 0 20px 20px;
-
 color: var(--gray-text);
-
 }
-
-
 
 .modal-content-box li {
-
 margin-bottom: 10px;
-
 font-size: 18px;
-
 }
-
-
 
 .price-section-box {
-
 border-left: 4px solid #28a745;
-
 padding-left: 15px;
-
 margin-top: 25px;
-
 margin-bottom: 20px;
-
 }
-
-
 
 .modal-register-btn {
-
 display: block;
-
 width: 100%;
-
 text-align: center;
-
 background: linear-gradient(135deg, var(--logo-gold), var(--logo-gold-hover));
-
 color: #0f2c59;
-
 padding: 14px 20px;
-
 border-radius: 50px;
-
 font-weight: 700;
-
 font-size: 18px;
-
 text-decoration: none;
-
 margin-top: 30px;
-
 box-shadow: 0 4px 15px rgba(243, 198, 35, 0.4);
-
 transition: var(--transition);
-
 }
-
-
 
 .modal-register-btn:hover {
-
 transform: translateY(-2px);
-
 box-shadow: 0 6px 20px rgba(243, 198, 35, 0.6);
-
 }
-
-
 
 /* Steps */
-
 .step-card {
-
 background: var(--card-bg);
-
 padding: 45px 30px;
-
 border-radius: var(--radius);
-
 text-align: center;
-
 box-shadow: var(--shadow);
-
 border: 1px solid rgba(150, 150, 150, 0.1);
-
 position: relative;
-
 transition: var(--transition);
-
 }
-
-
 
 .step-card:hover {
-
 transform: translateY(-6px);
-
 border-color: var(--logo-gold);
-
 }
-
-
 
 .step-number {
-
 position: absolute;
-
 top: -22px;
-
 left: 50%;
-
 transform: translateX(-50%);
-
 background: var(--logo-gold);
-
 color: #0f2c59;
-
 width: 50px;
-
 height: 50px;
-
 border-radius: 50%;
-
 display: flex;
-
 align-items: center;
-
 justify-content: center;
-
 font-weight: 800;
-
 font-size: 20px;
-
 box-shadow: 0 5px 15px rgba(243, 198, 35, 0.4);
-
 }
-
-
 
 .step-card h3 {
-
 margin-top: 15px;
-
 color: var(--text-main);
-
 font-size: 22px;
-
 margin-bottom: 12px;
-
 }
-
-
 
 .step-card p {
-
 color: var(--gray-text);
-
 font-size: 16px;
-
 }
-
-
 
 /* Gallery */
-
 .gallery-grid {
-
 display: grid;
-
 grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-
 gap: 20px;
-
 }
-
-
 
 .gallery-item {
-
 overflow: hidden;
-
 border-radius: var(--radius);
-
 box-shadow: var(--shadow);
-
 border: 2px solid var(--logo-gold);
-
 height: 250px;
-
 }
-
-
 
 .gallery-item img {
-
 width: 100%;
-
 height: 100%;
-
 object-fit: cover;
-
 transition: transform 0.6s ease;
-
 }
-
-
 
 .gallery-item img:hover {
-
 transform: scale(1.1);
-
 }
-
-
 
 /* FAQ Accordion */
-
 .faq-accordion {
-
 max-width: 850px;
-
 margin: 0 auto;
-
 }
-
-
 
 .faq-item {
-
 background: var(--card-bg);
-
 margin-bottom: 20px;
-
 border-radius: 16px;
-
 box-shadow: 0 6px 20px rgba(0,0,0,0.03);
-
 overflow: hidden;
-
 border: 1px solid rgba(150, 150, 150, 0.1);
-
 }
-
-
 
 .faq-question {
-
 width: 100%;
-
 padding: 24px 30px;
-
 background: none;
-
 border: none;
-
 text-align: left;
-
 font-size: 19px;
-
 font-weight: 700;
-
 color: var(--text-main);
-
 cursor: pointer;
-
 display: flex;
-
 justify-content: space-between;
-
 align-items: center;
-
 transition: var(--transition);
-
 }
-
-
 
 .faq-question:hover {
-
 color: var(--logo-gold);
-
 }
-
-
 
 .faq-answer {
-
 max-height: 0;
-
 overflow: hidden;
-
 transition: max-height 0.3s ease;
-
 padding: 0 30px;
-
 background: var(--card-bg);
-
 }
-
-
 
 .faq-answer p {
-
 padding: 18px 0 24px 0;
-
 color: var(--gray-text);
-
 font-size: 17px;
-
 }
-
-
 
 .faq-item.active .faq-answer {
-
 max-height: 280px;
-
 }
-
-
 
 .faq-item.active .faq-question i {
-
 transform: rotate(180deg);
-
 color: var(--logo-gold);
-
 }
-
-
 
 /* Contact & Map */
-
 .contact-grid {
-
 display: grid;
-
 grid-template-columns: 1fr 1fr;
-
 gap: 30px;
-
 align-items: center;
-
 }
-
-
 
 .contact-box {
-
 background: var(--card-bg);
-
 padding: 45px;
-
 border-radius: var(--radius);
-
 box-shadow: var(--shadow);
-
 border: 2px solid rgba(150, 150, 150, 0.1);
-
 }
-
-
 
 .contact-box p {
-
 margin-bottom: 20px;
-
 color: var(--gray-text);
-
 font-size: 18px;
-
 }
-
-
 
 .contact-box i {
-
 color: var(--logo-gold);
-
 margin-right: 12px;
-
 }
-
-
 
 .contact-box a {
-
 color: var(--text-main);
-
 text-decoration: none;
-
 font-weight: 700;
-
 transition: var(--transition);
-
 }
-
-
 
 .contact-box a:hover {
-
 color: var(--logo-gold);
-
 text-decoration: underline;
-
 }
-
-
 
 .map-container {
-
 border-radius: var(--radius);
-
 overflow: hidden;
-
 box-shadow: var(--shadow);
-
 border: 3px solid var(--logo-gold);
-
 height: 360px;
-
 }
-
-
 
 .map-container iframe {
-
 width: 100%;
-
 height: 100%;
-
 border: 0;
-
 }
-
-
 
 /* Floating Social Buttons */
-
 .floating-socials {
-
 position: fixed;
-
 bottom: 30px;
-
 right: 30px;
-
 display: flex;
-
 flex-direction: column;
-
 gap: 15px;
-
 z-index: 999;
-
 }
-
-
 
 .float-btn {
-
 width: 65px;
-
 height: 65px;
-
 border-radius: 50%;
-
 display: flex;
-
 align-items: center;
-
 justify-content: center;
-
 font-size: 30px;
-
 color: var(--white);
-
 box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-
 transition: var(--transition);
-
 text-decoration: none;
-
 }
-
-
 
 .messenger-float {
-
 background: #0084ff;
-
 }
-
-
 
 .instagram-float {
-
 background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-
 }
-
-
 
 .float-btn:hover {
-
 transform: scale(1.12) rotate(8deg);
-
 }
-
-
 
 /* Footer Styles */
-
 footer {
-
 background: var(--card-bg);
-
 color: var(--text-main);
-
 padding: 40px 0;
-
 text-align: center;
-
 border-top: 5px solid var(--logo-gold);
-
 }
-
-
 
 .footer-content {
-
 display: flex;
-
 flex-direction: column;
-
 align-items: center;
-
 gap: 20px;
-
 }
-
-
 
 .footer-copy {
-
 color: var(--gray-text);
-
 font-size: 16px;
-
 font-weight: 600;
-
 }
-
-
 
 .authors-wrapper {
-
 display: flex;
-
 flex-wrap: wrap;
-
 justify-content: center;
-
 gap: 10px;
-
 margin-top: 5px;
-
 }
-
-
 
 .author-chip {
-
 background: rgba(243, 198, 35, 0.12);
-
 color: var(--text-main);
-
 padding: 6px 14px;
-
 border-radius: 50px;
-
 font-size: 14px;
-
 font-weight: 600;
-
 border: 1px solid var(--logo-gold);
-
 transition: var(--transition);
-
 display: inline-flex;
-
 align-items: center;
-
 gap: 6px;
-
 }
-
-
 
 .author-chip:hover {
-
 background: var(--logo-gold);
-
 color: var(--logo-blue);
-
 transform: translateY(-2px);
-
 }
-
-
 
 .author-chip i {
-
 color: var(--logo-gold);
-
 font-size: 12px;
-
 }
-
-
 
 .author-chip:hover i {
-
 color: var(--logo-blue);
-
 }
-
-
 
 /* Responsive */
-
 @media (max-width: 1024px) {
-
 .team-grid {
-
 grid-template-columns: repeat(3, 1fr) !important;
-
 }
-
 }
-
-
 
 @media (max-width: 768px) {
-
 .nav-links {
-
 display: none;
-
 flex-direction: column;
-
 position: absolute;
-
 top: 75px;
-
 left: 0;
-
 width: 100%;
-
 background: var(--nav-bg);
-
 box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-
 padding: 30px 0;
-
 text-align: center;
-
 }
-
 .nav-links.active { display: flex; }
-
 .mobile-socials { display: flex; justify-content: center; }
-
 .menu-toggle { display: block; }
-
 .contact-grid { grid-template-columns: 1fr; }
-
 .team-grid {
-
 grid-template-columns: 1fr !important;
-
 }
-
 }
-
 </style>
-
 </head>
-
 <body data-theme="light">
 
-
-
 <!-- Header -->
-
 <header>
-
 <div class="container nav-container">
-
 <div class="logo">
-
 <a href="#hero"><img src="image/logo.jpg" alt="კიბე Education Logo"></a>
-
 </div>
-
 <nav>
-
 <ul class="nav-links">
-
 <li><a href="#hero" data-lang-ge="მთავარი" data-lang-en="Home">მთავარი</a></li>
-
 <li><a href="#programs" data-lang-ge="კურსები" data-lang-en="Courses">კურსები</a></li>
-
 <li><a href="#team" data-lang-ge="გუნდი" data-lang-en="Team">გუნდი</a></li>
-
 <li><a href="#steps" data-lang-ge="რეგისტრაცია" data-lang-en="Registration">რეგისტრაცია</a></li>
-
-<li><a href="#gallery" data-lang-ge="გალერია" data-lang-en="Gallery">გალერია</a></li>
-
+<li><a href="#gallery" data-lang-ge="გალერეა" data-lang-en="Gallery">გალერეა</a></li>
 <li><a href="#faq" data-lang-ge="FAQ" data-lang-en="FAQ">FAQ</a></li>
-
 <li><a href="#contact" data-lang-ge="კონტაქტი" data-lang-en="Contact">კონტაქტი</a></li>
-
 <li><a href="https://docs.google.com/forms/d/1VGKs17xEr7ZRrg2tf340np3ryWcC37If9-kTxFYN8Qk/viewform" target="_blank" class="btn-register-nav"><i class="fa-solid fa-file-pen"></i> <span data-lang-ge="რეგისტრაცია" data-lang-en="Register">რეგისტრაცია</span></a></li>
-
 <li class="mobile-socials">
-
 <a href="https://www.facebook.com/share/19aeU3UutU/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-
 <a href="https://www.instagram.com/kibe.education/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-
 </li>
-
 </ul>
-
 </nav>
 
-
-
 <div class="header-controls">
-
 <button class="control-btn" id="themeToggleBtn" title="თემის შეცვლა">
-
 <i class="fa-solid fa-moon" id="themeIcon"></i>
-
 </button>
-
 <button class="control-btn" id="langToggleBtn">
-
 <i class="fa-solid fa-globe"></i> <span id="langText">EN</span>
-
 </button>
-
 <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars"></i></div>
-
 </div>
-
 </div>
-
 </header>
 
-
-
 <!-- Hero Section -->
-
 <section id="hero" class="hero">
-
 <div class="relative mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.2fr_1fr]">
-
 <div>
-
 <h1 class="animate-rise font-display mt-6 text-4xl font-extrabold leading-tight sm:text-6xl" style="animation-delay:80ms">
-
 <span class="text-gold" data-lang-ge="კიბე - განათლებული მომავლისკენ" data-lang-en="Stairway to Educated Future">კიბე - განათლებული მომავლისკენ</span>
-
 </h1>
-
 <p class="animate-rise mt-6 max-w-xl text-lg text-white/80" style="animation-delay:160ms" data-lang-ge="„კიბე“ ეხმარება 5-დან 10 კლასის ჩათვლით მოსწავლეებს ცოდნის, თავდაჯერებულობისა და შემოქმედებითი აზროვნების განვითარებაში საგნობრივი გაკვეთილებით, ენებით, STEM-ითა და აქტივობებით." data-lang-en="„Kibe“ helps students from 5th to 10th grade develop knowledge, confidence, and creative thinking through subject lessons, languages, STEM, and activities.">„კიბე“ ეხმარება 5-დან 10 კლასის ჩათვლით მოსწავლეებს ცოდნის, თავდაჯერებულობისა და შემოქმედებითი აზროვნების განვითარებაში საგნობრივი გაკვეთილებით, ენებით, STEM-ითა და აქტივობებით.</p>
-
+<!-- მკაცრად ერთ ხაზზე განთავსებული ღილაკები -->
 <div class="animate-rise mt-8 hero-actions-wrapper" style="animation-delay:240ms">
-
-<a href="https://docs.google.com/forms/d/1VGKs17xEr7ZRrg2tf340np3ryWcC37If9-kTxFYN8Qk/viewform" target="_blank" rel="noopener noreferrer" style="background: var(--logo-gold); color: #0f2c59; padding: 12px 28px; border-radius: 50px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 0 0 #b57f00; transition: all 0.3s ease;">
-
-<i class="fa-solid fa-file-pen" style="font-size: 18px;"></i> <span data-lang-ge="მოსწავლის რეგისტრაცია" data-lang-en="Student Registration">მოსწავლის რეგისტრაცია</span>
-
+<a href="https://docs.google.com/forms/d/1VGKs17xEr7ZRrg2tf340np3ryWcC37If9-kTxFYN8Qk/viewform" target="_blank" rel="noopener noreferrer" class="hero-btn-main">
+<i class="fa-solid fa-file-pen" style="font-size: 16px;"></i> <span data-lang-ge="მოსწავლის რეგისტრაცია" data-lang-en="Student Registration">მოსწავლის რეგისტრაცია</span>
 </a>
-
-<a href="tel:+995577320025" style="color: #ffffff; text-decoration: none; font-weight: 600; font-size: 18px; display: inline-flex; align-items: center; gap: 10px; transition: var(--transition);">
-
-<i class="fa-solid fa-phone" style="color: var(--logo-gold); font-size: 18px;"></i> +995 577 320 025
-
+<a href="tel:+995577320025" class="hero-phone-main">
+<i class="fa-solid fa-phone" style="color: var(--logo-gold); font-size: 16px;"></i> +995 577 320 025
 </a>
-
 </div>
-
 </div>
-
 <div class="animate-rise hidden self-end lg:block" style="animation-delay:320ms">
-
 <div class="grid grid-cols-3 gap-3">
-
 <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur" style="transform:translateY(0px)"><p class="font-display text-3xl font-bold text-gold">13+</p><p class="mt-1 text-sm text-white/75" data-lang-ge="საგანი და აქტივობა" data-lang-en="Subjects & Activities">საგანი და აქტივობა</p></div>
-
 <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur" style="transform:translateY(-24px)"><p class="font-display text-3xl font-bold text-gold">V-X</p><p class="mt-1 text-sm text-white/75" data-lang-ge="კლასის მოსწავლეები" data-lang-en="Grade Students">კლასის მოსწავლეები</p></div>
-
 <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur" style="transform:translateY(-48px)"><p class="font-display text-3xl font-bold text-gold">1</p><p class="mt-1 text-sm text-white/75" data-lang-ge="სამეწარმეო პროექტი" data-lang-en="Entrepreneurial Project">სამეწარმეო პროექტი</p></div>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
-
-
 
 <!-- Programs / Courses Section -->
-
 <section id="programs" class="section bg-light">
-
 <div class="container">
-
 <h2 class="section-title" data-lang-ge="ძირითადი მიმართულებები და კურსები" data-lang-en="Main Directions & Courses">ძირითადი მიმართულებები და კურსები</h2>
-
 <div class="programs-grid">
-
 <!-- Program 1 (V-VI Class) -->
-
 <div class="program-card" onclick="openProgramModal('v-vi')">
-
 <img src="image/kkkk.jfif" alt="V-VI კლასის პროგრამა">
-
 <div class="program-content">
-
 <div>
-
 <h3>V-VI კლასი</h3>
 
-
 </div>
-
 <p>სკოლის ასაკის ბავშვებისთვის განკუთვნილი ინტელექტუალური საგანმანათლებლო პროგრამები.</p>
-
 <button class="btn-details">იხილეთ დეტალები →</button>
-
 </div>
-
 </div>
-
-
 
 <!-- Program 2 (VII-VIII Class) -->
-
 <div class="program-card" onclick="openProgramModal('vii-viii')">
-
 <img src="image/q.jfif" alt="VII-VIII კლასის პროგრამა">
-
 <div class="program-content">
-
 <div>
-
 <h3>VII-VIII კლასი</h3>
 
-
-
 </div>
-
 <p>სკოლამდელი აღზრდის პროგრამები და ბავშვის ინდივიდუალურ საჭიროებებზე მორგებული გარემო.</p>
-
 <button class="btn-details">იხილეთ დეტალები →</button>
-
 </div>
-
 </div>
-
-
 
 <!-- Program 3 (IX-X Class) -->
-
 <div class="program-card" onclick="openProgramModal('ix-x')">
-
 <img src="image/d.jfif" alt="IX-X კლასის პროგრამა">
-
 <div class="program-content">
-
 <div>
-
 <h3>IX-X კლასი</h3>
 
-
 </div>
-
 <p>შემეცნებითი და განმავითარებელი აქტივობები, შემოქმედებითი უნარების გასავითარებლად.</p>
-
 <button class="btn-details">იხილეთ დეტალები →</button>
-
 </div>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
-
-
 
 <!-- Team Section -->
-
-<section id="team" class="section" style="margin-top: 4rem;">
-
+<section id="team" class="section" style="margin-top: 2rem;">
 <div class="container">
-
 <div style="text-align: center; max-width: 750px; margin: 0 auto 50px auto;">
-
 <p class="text-sm font-semibold uppercase tracking-[0.2em]" style="color: var(--logo-gold); margin-bottom: 10px;" data-lang-ge="ჩვენი გუნდი" data-lang-en="Our Team">ჩვენი გუნდი</p>
-
 <h2 class="section-title" data-lang-ge="გაიცანით ჩვენი გუნდი" data-lang-en="Meet Our Team">გაიცანით ჩვენი გუნდი</h2>
-
 <p class="text-lg" style="color: var(--gray-text); font-size: 19px;" data-lang-ge="პედაგოგები და პროფესიონალები, რომლებიც მოსწავლეებს ყოველ საფეხურზე ეხმარებიან." data-lang-en="Educators and professionals who help students at every step.">პედაგოგები და პროფესიონალები, რომლებიც მოსწავლეებს ყოველ საფეხურზე ეხმარებიან.</p>
-
 </div>
-
 <div class="team-grid" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; margin-top: 50px;">
-
 <figure>
-
 <div style="height: 220px; background: var(--logo-blue); display: flex; align-items: center; justify-content: center;">
-
 <img src="image/nino kvaracxelia.jfif" alt="ნინო კვარაცხელია" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-
 </div>
-
 <figcaption style="padding: 20px;">
-
 <p style="color: var(--text-main); font-size: 18px; font-weight: 700; margin-bottom: 8px;">ნინო კვარაცხელია</p>
-
 <p style="color: var(--gray-text); font-size: 14px; line-height: 1.5;">ხელოვნებათმცოდნე, პროფესიული განათლების მასწავლებელი, ბათუმის სახელმწიფო საზღვაო აკადემიის ფოთის ფილიალის ხარისხის უზრუნველყოფის მენეჯერი.</p>
-
 </figcaption>
-
 </figure>
-
 <figure>
-
 <div style="height: 220px; background: var(--logo-blue); display: flex; align-items: center; justify-content: center;">
-
 <img src="image/giorgi bakhbava.jfif" alt="გიორგი ბახბავა" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-
 </div>
-
 <figcaption style="padding: 20px;">
-
 <p style="color: var(--text-main); font-size: 18px; font-weight: 700; margin-bottom: 8px;">გიორგი ბახბავა</p>
-
 <p style="color: var(--gray-text); font-size: 14px; line-height: 1.5;">ფრილანსერი დეველოპერი, Google-ის სერტიფიცირებული AI სპეციალისტი, მასწავლებელი.</p>
-
 </figcaption>
-
 </figure>
 
-
-
 <figure>
-
 <div style="height: 220px; background: var(--logo-blue); display: flex; align-items: center; justify-content: center;">
-
 <img src="image/giorgi seskuria.jfif" alt="გიორგი სესკურია" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-
 </div>
-
 <figcaption style="padding: 20px;">
-
 <p style="color: var(--text-main); font-size: 18px; font-weight: 700; margin-bottom: 8px;">გიორგი სესკურია</p>
-
 <p style="color: var(--gray-text); font-size: 14px; line-height: 1.5;">ფოთის ინტელექტუალების თავმჯდომარე, სასკოლო ინტელექტუალური თამაშებისა და ფოთის ღია ჩემპიონატის ორგანიზატორი.</p>
-
 </figcaption>
-
 </figure>
 
-
-
 <figure>
-
 <div style="height: 220px; background: var(--logo-blue); display: flex; align-items: center; justify-content: center;">
-
 <img src="image/bakar eragia.jfif" alt="ბაქარ ერაგია" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-
 </div>
-
 <figcaption style="padding: 20px;">
-
 <p style="color: var(--text-main); font-size: 18px; font-weight: 700; margin-bottom: 8px;">ბაქარ ერაგია</p>
-
 <p style="color: var(--gray-text); font-size: 14px; line-height: 1.5;">ფოთის პირველი სკოლის დირექტორი, მასწავლებელი.</p>
-
 </figcaption>
-
 </figure>
-
-
 
 <figure>
-
 <div style="height: 220px; background: var(--logo-blue); display: flex; align-items: center; justify-content: center;">
-
 <img src="image/sesili eragia.jfif" alt="სესილი ერაგია" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-
 </div>
-
 <figcaption style="padding: 20px;">
-
 <p style="color: var(--text-main); font-size: 18px; font-weight: 700; margin-bottom: 8px;">სესილი ერაგია</p>
-
 <p style="color: var(--gray-text); font-size: 14px; line-height: 1.5;">გამომცემლობა „პეგასის“ მენეჯერი, სახელმწიფო და ნიკო ნიკოლაძის სახელობის სტიპენდიატი, პრემია „ამირანის“ ლაურეატი (პროზა).</p>
-
 </figcaption>
-
 </figure>
-
 </div>
-
 </div>
-
 </section>
-
-
-
 <!-- Gallery Section -->
-
-<section id="gallery" class="section bg-light" style="margin-top: 4rem;">
-
+<section id="gallery" class="section bg-light" style="margin-top: 1rem;">
 <div class="container">
-
-<h2 class="section-title" data-lang-ge="ფოტო გალერია" data-lang-en="Photo Gallery">ფოტო გალერია</h2>
-
+<h2 class="section-title" data-lang-ge="ფოტო გალერია" data-lang-en="Photo Gallery">ფოტო გალერეა</h2>
 <p class="section-subtitle" data-lang-ge="ჩვენი ყოველდღიური აქტივობები, შეხვედრები და ემოციები." data-lang-en="Our daily activities, meetings, and emotions.">ჩვენი ყოველდღიური აქტივობები, შეხვედრები და ემოციები.</p>
-
 <div class="gallery-grid">
-
 <div class="gallery-item"><img src="image/photo1.jpg" alt="გალერია 1"></div>
-
 <div class="gallery-item"><img src="image/2.jfif" alt="გალერია 2"></div>
-
 <div class="gallery-item"><img src="image/3.jfif" alt="გალერია 3"></div>
-
 <div class="gallery-item"><img src="image/5.jpg" alt="გალერია 4"></div>
-
 </div>
-
 </div>
-
 </section>
-
-
 
 <!-- Steps -->
-
 <section id="steps" class="section">
-
 <div class="container">
-
 <h2 class="section-title" data-lang-ge="როგორ გავხდე მონაწილე?" data-lang-en="How to Become a Participant?">როგორ გავხდე მონაწილე?</h2>
-
 <p class="section-subtitle" data-lang-ge="გაიარე პროექტში ინტეგრაციის მარტივი და მკაფიო ეტაპები." data-lang-en="Follow the simple and clear steps to join the project.">გაიარე პროექტში ინტეგრაციის მარტივი და მკაფიო ეტაპები.</p>
-
 <div class="grid-3">
-
 <div class="step-card">
-
 <div class="step-number">1</div>
-
 <h3 data-lang-ge="შეავსე Google Form" data-lang-en="Fill Google Form">შეავსე Google Form</h3>
-
 <p data-lang-ge="გადადი ბმულზე და დააფიქსირე შენი მონაცემები სარეგისტრაციო ფორმაში." data-lang-en="Go to the link and submit your details in the registration form.">გადადი ბმულზე და დააფიქსირე შენი მონაცემები სარეგისტრაციო ფორმაში.</p>
-
 </div>
-
 <div class="step-card">
-
 <div class="step-number">2</div>
-
 <h3 data-lang-ge="გაიარე ტესტირება" data-lang-en="Take the Test">გაიარე ტესტირება</h3>
-
 <p data-lang-ge="მიიღე მონაწილეობა შესარჩევ ტესტირებაში ცოდნის გამოსავლენად." data-lang-en="Participate in the selection test to evaluate knowledge.">მიიღე მონაწილეობა შესარჩევ ტესტირებაში ცოდნის გამოსავლენად.</p>
-
 </div>
-
 <div class="step-card">
-
 <div class="step-number">3</div>
-
 <h3 data-lang-ge="მოხვდი ჯგუფში" data-lang-en="Join the Group">მოხვდი ჯგუფში</h3>
-
 <p data-lang-ge="საუკეთესო შედეგების მქონე მოსწავლეები გახდებიან ძირითადი ნაკადის წევრები." data-lang-en="Students with the best results will become members of the main stream.">საუკეთესო შედეგების მქონე მოსწავლეები გახდებიან ძირითადი ნაკადის წევრები.</p>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
-
-
 
 <!-- FAQ -->
-
 <section id="faq" class="section bg-light">
-
 <div class="container">
-
 <h2 class="section-title" data-lang-ge="ხშირად დასმული კითხვები (FAQ)" data-lang-en="Frequently Asked Questions (FAQ)">ხშირად დასმული კითხვები (FAQ)</h2>
-
 <p class="section-subtitle" data-lang-ge="ყველაფერი, რაც პროექტის შესახებ უნდა იცოდეთ." data-lang-en="Everything you need to know about the project.">ყველაფერი, რაც პროექტის შესახებ უნდა იცოდეთ.</p>
-
 <div class="faq-accordion">
-
 <div class="faq-item">
-
 <button class="faq-question"><span data-lang-ge="როგორ შემიძლია კონკურსზე დარეგისტრირება?" data-lang-en="How can I register for the competition?">როგორ შემიძლია კონკურსზე დარეგისტრირება?</span> <i class="fa-solid fa-chevron-down"></i></button>
-
 <div class="faq-answer"><p data-lang-ge="დააჭირეთ „რეგისტრაცია“ ღილაკს, რომელიც გადაგამართავთ ოფიციალურ სარეგისტრაციო ფორმაზე, შეავსეთ მონაცემები და გაიარეთ ტესტირება." data-lang-en="Click the 'Register' button which will redirect you to the official registration form, fill in the data and take the test.">დააჭირეთ „რეგისტრაცია“ ღილაკს, რომელიც გადაგამართავთ ოფიციალურ სარეგისტრაციო ფორმაზე, შეავსეთ მონაცემები და გაიარეთ ტესტირება.</p></div>
-
 </div>
-
 <div class="faq-item">
-
 <button class="faq-question"><span data-lang-ge="რომელი კლასების მოსწავლეებისთვისაა პროექტი?" data-lang-en="Which grades is the project for?">რომელი კლასების მოსწავლეებისთვისაა პროექტი?</span> <i class="fa-solid fa-chevron-down"></i></button>
-
 <div class="faq-answer"><p data-lang-ge="პროექტი განკუთვნილია ქალაქ ფოთში მცხოვრები 5-დან 10-ე კლასის ჩათვლით მოსწავლეებისთვის." data-lang-en="The project is intended for students from 5th to 10th grade living in the city of Poti.">პროექტი განკუთვნილია ქალაქ ფოთში მცხოვრები 5-დან 10-ე კლასის ჩათვლით მოსწავლეებისთვის.</p></div>
-
 </div>
-
 <div class="faq-item">
-
 <button class="faq-question"><span data-lang-ge="რა ფორმატით ტარდება მეცადინეობები?" data-lang-en="What is the format of the classes?">რა ფორმატით ტარდება მეცადინეობები?</span> <i class="fa-solid fa-chevron-down"></i></button>
-
 <div class="faq-answer"><p data-lang-ge="შეხვედრები ტარდება კვირა დღეებსა და შესაბამის პერიოდებში, თვეში მინიმუმ 7 აქტივობის ფარგლებში." data-lang-en="Meetings are held on Sundays and relevant periods, within the framework of at least 7 activities per month.">შეხვედრები ტარდება კვირა დღეებსა და შესაბამის პერიოდებში, თვეში მინიმუმ 7 აქტივობის ფარგლებში.</p></div>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
-
-
 
 <!-- Contact Section -->
-
-<section id="contact" class="section" style="margin-top: 4rem;">
-
+<section id="contact" class="section" style="margin-top: 2rem;">
 <div class="container">
-
 <h2 class="section-title" data-lang-ge="კონტაქტი და მდებარეობა" data-lang-en="Contact & Location">კონტაქტი და მდებარეობა</h2>
-
 <p class="section-subtitle" data-lang-ge="გვეწვიეთ ან დაგვიკავშირდით ნებისმიერ დროს." data-lang-en="Visit us or contact us at any time.">გვეწვიეთ ან დაგვიკავშირდით ნებისმიერ დროს.</p>
-
 <div class="contact-grid">
-
 <div class="contact-box">
-
 <p><i class="fa-solid fa-location-dot"></i> <strong data-lang-ge="მისამართი:" data-lang-en="Address:">მისამართი:</strong> <span data-lang-ge="ქ. ფოთი, აკაკი წერეთლის ქუჩა 44" data-lang-en="Poti, 44 Akaki Tsereteli St">ქ. ფოთი, აკაკი წერეთლის ქუჩა 44</span></p>
-
 <p><i class="fa-solid fa-envelope"></i> <strong data-lang-ge="ელ-ფოსტა:" data-lang-en="Email:">ელ-ფოსტა:</strong> info@kibe.education</p>
-
 <p><i class="fa-solid fa-phone"></i> <strong data-lang-ge="ტელეფონი:" data-lang-en="Phone:">ტელეფონი:</strong> <a href="tel:+995577320025">+995 577 320 025</a></p>
-
 <p><i class="fa-solid fa-clock"></i> <strong data-lang-ge="სამუშაო საათები:" data-lang-en="Working Hours:">სამუშაო საათები:</strong> <span data-lang-ge="ორშაბათი - შაბათი: 10:00 - 18:00" data-lang-en="Monday - Saturday: 10:00 - 18:00">ორშაბათი - შაბათი: 10:00 - 18:00</span></p>
-
 </div>
-
 <div class="map-container">
-
 <!-- ზუსტი ძებნა აკაკი წერეთლის ქუჩა 44, ფოთი -->
-
 <iframe src="https://maps.google.com/maps?q=44+Akaki+Tsereteli+st,+Poti&t=&z=17&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-
 <!-- Modal for Program Details -->
-
 <div id="programModal" class="modal">
-
 <div class="modal-content-box">
-
 <button class="close-modal-btn" onclick="closeProgramModal()">&times;</button>
-
 <h3 id="modalTitle"></h3>
-
 <div class="modal-title-divider"></div>
-
 <div id="modalText"></div>
-
 <a href="https://docs.google.com/forms/d/1VGKs17xEr7ZRrg2tf340np3ryWcC37If9-kTxFYN8Qk/viewform" target="_blank" class="modal-register-btn" id="modalRegisterBtn">რეგისტრაცია პროგრამაზე</a>
-
 </div>
-
 </div>
-
-
 
 <!-- Floating Social Buttons -->
-
 <div class="floating-socials">
-
 <a href="https://www.instagram.com/kibe.education/" target="_blank" class="float-btn instagram-float" title="მოგვწერეთ Instagram-ზე">
-
 <i class="fa-brands fa-instagram"></i>
-
 </a>
-
 <a href="https://www.facebook.com/share/19aeU3UutU/?mibextid=wwXIfr" target="_blank" class="float-btn messenger-float" title="მოგვწერეთ Messenger-ში">
-
 <i class="fa-brands fa-facebook-messenger"></i>
-
 </a>
-
 </div>
-
-
 
 <!-- Footer -->
-
 <footer>
-
 <div class="container footer-content">
-
 <p class="footer-copy" data-lang-ge="© 2026 ყველა უფლება დაცულია." data-lang-en="© 2026 All Rights Reserved.">© 2026 ყველა უფლება დაცულია.</p>
-
 <div class="authors-wrapper">
-
 <span class="author-chip"><i class="fa-solid fa-user-pen"></i> პოლინა.კ</span>
-
 <span class="author-chip"><i class="fa-solid fa-user-pen"></i> ელენე.ხ</span>
-
 <span class="author-chip"><i class="fa-solid fa-user-pen"></i> მარი.კ</span>
-
 <span class="author-chip"><i class="fa-solid fa-user-pen"></i> ბუთა.გ</span>
-
 <span class="author-chip"><i class="fa-solid fa-user-pen"></i> გიორგი.ჭ</span>
-
 </div>
-
 </div>
-
 </footer>
 
-
-
 <!-- Script -->
-
 <script>
-
 console.log("საიტი წარმატებით ჩაიტვირთა.");
 
-
-
 const mobileMenu = document.getElementById('mobile-menu');
-
 const navLinks = document.querySelector('.nav-links');
-
 mobileMenu.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
-
-
 const faqItems = document.querySelectorAll('.faq-item');
-
 faqItems.forEach(item => {
-
 const question = item.querySelector('.faq-question');
-
 question.addEventListener('click', () => {
-
 faqItems.forEach(other => { if (other !== item) other.classList.remove('active'); });
-
 item.classList.toggle('active');
-
 });
-
 });
-
-
 
 const themeToggleBtn = document.getElementById('themeToggleBtn');
-
 const themeIcon = document.getElementById('themeIcon');
-
 const bodyEl = document.body;
 
-
-
 themeToggleBtn.addEventListener('click', () => {
-
 if (bodyEl.getAttribute('data-theme') === 'light') {
-
 bodyEl.setAttribute('data-theme', 'dark');
-
 themeIcon.className = 'fa-solid fa-sun';
-
 } else {
-
 bodyEl.setAttribute('data-theme', 'light');
-
 themeIcon.className = 'fa-solid fa-moon';
-
 }
-
 });
-
-
 
 const langToggleBtn = document.getElementById('langToggleBtn');
-
 const langText = document.getElementById('langText');
-
 let currentLang = 'ge';
 
-
-
 langToggleBtn.addEventListener('click', () => {
-
 currentLang = currentLang === 'ge' ? 'en' : 'ge';
-
 langText.innerText = currentLang === 'ge' ? 'EN' : 'GE';
 
-
-
 document.querySelectorAll('[data-lang-ge]').forEach(el => {
-
 el.innerText = el.getAttribute(`data-lang-${currentLang}`);
-
 });
-
 });
-
-
 
 const programDetails = {
-
 'v-vi': {
-
 title: 'V-VI კლასის პროგრამა - „კიბე - განათლებული მომავლისკენ“',
-
 htmlContent: `
-
 <div class="price-section-box">
-
 <p style="margin-top: 0;"><strong>პროგრამის საფასური:</strong> 120 ლარი თვეში<br>
-
 <strong>სრული კურსი:</strong> 9 თვე - 63 შეხვედრა | 4 თემატური ბლოკი | საგანმანათლებლო ექსკურსია.</p>
 
-
-
 <p style="font-weight: 700; margin-top: 15px;">ფასდაკლებები:</p>
-
 <ul>
-
 <li>სრული 9-თვიანი კურსის საფასურის ერთიანად გადახდისას - 20% ფასდაკლება;</li>
-
 <li>დედაშვილობის მონაწილეობისას - 30% ფასდაკლება.</li>
-
 </ul>
-
 </div>
-
 <p>V-VI კლასების მოსწავლეებს სთავაზობს საგანმანათლებლო პროგრამას, რომელიც ბავშვის განვითარებას მხოლოდ აკადემიურ ცოდნაზე არ აყარებს.</p>
-
 <p>ამ ასაკში განსაკუთრებით მნიშვნელოვანია ბავშვის ინტერესების გაღვივება, საკუთარი აზრის თავისუფლად გამოხატვა, მოსმენა, მსჯელობა, კომუნიკაცია და სხვებთან თანამშრომლობა.</p>
-
 <p style="font-weight: 700; margin-top: 20px; color: var(--text-main);">რას მოიცავს პროგრამა?</p>
-
 <ul>
-
 <li><strong>მხატვრული ლიტერატურის კითხვა და განხილვა:</strong> ბავშვები წინასწარ მიიღებენ ასაკის შესაბამის მხატვრულ ნაწარმოებებს.</li>
-
 <li><strong>ფილმებისა და სპექტაკლების ჩვენება და განხილვა:</strong> საინტერესო ფილმები და სპექტაკლები სიღრმისეული მსჯელობით.</li>
-
 <li><strong>ინტელექტუალური ვიქტორინები და სამაგიდო თამაშები:</strong> ლოგიკური და კრიტიკული აზროვნების განვითარება.</li>
-
 <li><strong>მეტყველებისა და საჯარო საუბრის წრე:</strong> სწორი და გამართული მეტყველება, აზრის ჩამოყალიბება.</li>
-
 <li><strong>საგანმანათლებლო ექსკურსია:</strong> 1 საგანმანათლებლო ექსკურსია მიღებული ცოდნის რეალობასთან დასაკავშირებლად.</li>
-
 </ul>
-
 `,
-
 registerText: 'რეგისტრაცია V-VI კლასის პროგრამაზე'
-
 },
-
 'vii-viii': {
-
 title: 'VII-VIII კლასის პროგრამა - „აზროვნების კიბე“',
-
 htmlContent: `
-
 <div class="price-section-box">
-
 <p style="margin-top: 0;"><strong>პროგრამის საფასური:</strong> 120 ლარი თვეში<br>
-
 <strong>სრული კურსი:</strong> 9 თვე - 72 შეხვედრა | 4 სავალდებულო და 3 არჩევითი ბლოკი | მინიმუმ 1 პროექტი.</p>
 
-
-
 <p style="font-weight: 700; margin-top: 15px;">ფასდაკლებები:</p>
-
 <ul>
-
 <li>სრული 9-თვიანი კურსის საფასურის ერთიანად გადახდისას - 20% ფასდაკლება;</li>
-
 <li>დედაშვილობის მონაწილეობისას - 30% ფასდაკლება.</li>
-
 </ul>
-
 </div>
-
 <p>VII-VIII კლასების მოსწავლეებს სთავაზობს პროგრამას, რომელიც ავითარებს დამოუკიდებელ აზროვნებას, მსჯელობას, კომუნიკაციასა და გუნდური მუშაობის უნარებს.</p>
-
 <p style="font-weight: 700; margin-top: 20px; color: var(--text-main);">რას მოიცავს პროგრამა?</p>
-
 <ul>
-
 <li><strong>სავალდებულო ძირითადი ბლოკი:</strong> წიგნის კითხვა და განხილვა, ფილმისა და სპექტაკლის ჩვენება-განხილვა, ინტელექტუალური და სამაგიდო თამაშები, დებატების სკოლა.</li>
-
 <li><strong>არჩევითი მიმართულებები:</strong> ონლაინ-მედიის კურსი, პროგრამირება და ხელოვნური ინტელექტი, გრაფიკული დიზაინი.</li>
-
 </ul>
-
 `,
-
 registerText: 'რეგისტრაცია VII-VIII კლასის პროგრამაზე'
-
 },
-
 'ix-x': {
-
 title: 'IX-X კლასის პროგრამა - შესაძლებლობების კიბე',
-
 htmlContent: `
-
 <div class="price-section-box">
-
 <p style="margin-top: 0;"><strong>პროგრამის საფასური:</strong> 120 ლარი თვეში<br>
-
 <strong>სრული კურსი:</strong> 9 თვე - 72 შეხვედრა | 4 სავალდებულო და 3 არჩევითი ბლოკი | მინიმუმ 1 სამეწარმეო პროექტი.</p>
 
-
-
 <p style="font-weight: 700; margin-top: 15px;">ფასდაკლებები:</p>
-
 <ul>
-
 <li>სრული 9-თვიანი კურსის საფასურის ერთიანად გადახდისას - 20% ფასდაკლება;</li>
-
 <li>დედაშვილობის მონაწილეობისას - 30% ფასდაკლება.</li>
-
 </ul>
-
 </div>
-
 <p>IX-X კლასების მოსწავლეებს სთავაზობს პროფესიული ორიენტაციის, კრიტიკული აზროვნებისა და თანამედროვე ტექნოლოგიების შემცველ ყოვლისმომცველ პროგრამას.</p>
-
 <p style="font-weight: 700; margin-top: 20px; color: var(--text-main);">რას მოიცავს პროგრამა?</p>
-
 <ul>
-
 <li><strong>სავალდებულო ძირითადი ბლოკი:</strong> წიგნის კითხვა და განხილვა, ფილმისა და სპექტაკლის ჩვენება-განხილვა, ინტელექტკლუბი და სტრატეგიული სამაგიდო თამაშები, პროფესიული ორიენტაცია და მეწარმეობის საფუძვლები.</li>
-
 <li><strong>არჩევითი მიმართულებები:</strong> ონლაინ-მედიის კურსი, პროგრამირება და ხელოვნური ინტელექტი, გრაფიკული დიზაინი.</li>
-
 </ul>
-
 `,
-
 registerText: 'რეგისტრაცია IX-X კლასის პროგრამაზე'
-
 }
-
 };
 
-
-
 function openProgramModal(programType) {
-
 const modal = document.getElementById('programModal');
-
 const titleEl = document.getElementById('modalTitle');
-
 const textEl = document.getElementById('modalText');
-
 const registerBtn = document.getElementById('modalRegisterBtn');
 
-
-
 if (programDetails[programType]) {
-
 titleEl.innerText = programDetails[programType].title;
-
 textEl.innerHTML = programDetails[programType].htmlContent;
-
 registerBtn.innerText = programDetails[programType].registerText;
-
 modal.style.display = 'flex';
-
 }
-
 }
-
-
 
 function closeProgramModal() {
-
 const modal = document.getElementById('programModal');
-
 modal.style.display = 'none';
-
 }
-
-
 
 window.addEventListener('click', function(event) {
-
 const modal = document.getElementById('programModal');
-
 if (event.target === modal) {
-
 modal.style.display = 'none';
-
 }
-
 });
-
 </script>
-
 </body>
-
-</html> 
-
+</html>
