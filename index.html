@@ -170,6 +170,9 @@ box-shadow: 0 4px 15px rgba(243, 198, 35, 0.4);
 transition: var(--transition) !important;
 text-decoration: none !important;
 border-bottom: 3px solid #ff7f50 !important;
+display: inline-flex;
+align-items: center;
+gap: 8px;
 }
 
 .btn-register-nav:hover {
@@ -806,7 +809,7 @@ grid-template-columns: 1fr !important;
 <li><a href="#gallery" data-lang-ge="გალერია" data-lang-en="Gallery">გალერია</a></li>
 <li><a href="#faq" data-lang-ge="FAQ" data-lang-en="FAQ">FAQ</a></li>
 <li><a href="#contact" data-lang-ge="კონტაქტი" data-lang-en="Contact">კონტაქტი</a></li>
-<li><a href="https://docs.google.com/forms/d/1VGKs17xEr7ZRrg2tf340np3ryWcC37If9-kTxFYN8Qk/viewform" target="_blank" class="btn-register-nav"><i class="fa-solid fa-file-excel"></i> <span data-lang-ge="რეგისტრაცია" data-lang-en="Register">რეგისტრაცია</span></a></li>
+<li><a href="https://docs.google.com/forms/d/1VGKs17xEr7ZRrg2tf340np3ryWcC37If9-kTxFYN8Qk/viewform" target="_blank" class="btn-register-nav"><i class="fa-solid fa-file-pen"></i> <span data-lang-ge="რეგისტრაცია" data-lang-en="Register">რეგისტრაცია</span></a></li>
 <li class="mobile-socials">
 <a href="https://www.facebook.com/share/19aeU3UutU/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
 <a href="https://www.instagram.com/kibe.education/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -864,7 +867,7 @@ grid-template-columns: 1fr !important;
 <div class="program-content">
 <div>
 <h3>V-VI კლასი</h3>
-<p>„აღმოაჩინე თამაშით“</p>
+
 </div>
 <p>სკოლის ასაკის ბავშვებისთვის განკუთვნილი ინტელექტუალური საგანმანათლებლო პროგრამები.</p>
 <button class="btn-details">იხილეთ დეტალები →</button>
@@ -877,7 +880,7 @@ grid-template-columns: 1fr !important;
 <div class="program-content">
 <div>
 <h3>VII-VIII კლასი</h3>
-<p>„აზროვნების კიბე“</p>
+
 </div>
 <p>სკოლამდელი აღზრდის პროგრამები და ბავშვის ინდივიდუალურ საჭიროებებზე მორგებული გარემო.</p>
 <button class="btn-details">იხილეთ დეტალები →</button>
@@ -890,7 +893,7 @@ grid-template-columns: 1fr !important;
 <div class="program-content">
 <div>
 <h3>IX-X კლასი</h3>
-<p>„შესაძლებლობების კიბე“</p>
+
 </div>
 <p>შემეცნებითი და განმავითარებელი აქტივობები, შემოქმედებითი უნარების გასავითარებლად.</p>
 <button class="btn-details">იხილეთ დეტალები →</button>
@@ -1120,34 +1123,70 @@ const programDetails = {
 'v-vi': {
 title: 'V-VI კლასის პროგრამა - „კიბე - განათლებული მომავლისკენ“',
 htmlContent: `
-<p>V-VI კლასების მოსწავლეებს სთავაზობს საგანმანათლებლო პროგრამას, რომელიც ბავშვის განვითარებას მხოლოდ აკადემიურ ცოდნაზე არ აყარებს.</p>
-<p>ამ ასაკში განსაკუთრებით მნიშვნელოვანია ბავშვის ინტერესების გაღვივება, საკუთარი აზრის თავისუფლად გამოხატვა, მოსმენა, მსჯელობა, კომუნიკაცია და სხვებთან თანამშრომლობა.</p>
 <div class="price-section-box">
 <p style="margin-top: 0;"><strong>პროგრამის საფასური:</strong> 120 ლარი თვეში<br>
-<strong>სრული კურსი:</strong> 9 თვე - 63 შეხვედრა</p>
+<strong>სრული კურსი:</strong> 9 თვე - 63 შეხვედრა | 4 თემატური ბლოკი | საგანმანათლებლო ექსკურსია.</p>
+
+<p style="font-weight: 700; margin-top: 15px;">ფასდაკლებები:</p>
+<ul>
+<li>სრული 9-თვიანი კურსის საფასურის ერთიანად გადახდისას - 20% ფასდაკლება;</li>
+<li>დედაშვილობის მონაწილეობისას - 30% ფასდაკლება.</li>
+</ul>
 </div>
+<p>V-VI კლასების მოსწავლეებს სთავაზობს საგანმანათლებლო პროგრამას, რომელიც ბავშვის განვითარებას მხოლოდ აკადემიურ ცოდნაზე არ აყარებს.</p>
+<p>ამ ასაკში განსაკუთრებით მნიშვნელოვანია ბავშვის ინტერესების გაღვივება, საკუთარი აზრის თავისუფლად გამოხატვა, მოსმენა, მსჯელობა, კომუნიკაცია და სხვებთან თანამშრომლობა.</p>
+<p style="font-weight: 700; margin-top: 20px; color: var(--text-main);">რას მოიცავს პროგრამა?</p>
+<ul>
+<li><strong>მხატვრული ლიტერატურის კითხვა და განხილვა:</strong> ბავშვები წინასწარ მიიღებენ ასაკის შესაბამის მხატვრულ ნაწარმოებებს.</li>
+<li><strong>ფილმებისა და სპექტაკლების ჩვენება და განხილვა:</strong> საინტერესო ფილმები და სპექტაკლები სიღრმისეული მსჯელობით.</li>
+<li><strong>ინტელექტუალური ვიქტორინები და სამაგიდო თამაშები:</strong> ლოგიკური და კრიტიკული აზროვნების განვითარება.</li>
+<li><strong>მეტყველებისა და საჯარო საუბრის წრე:</strong> სწორი და გამართული მეტყველება, აზრის ჩამოყალიბება.</li>
+<li><strong>საგანმანათლებლო ექსკურსია:</strong> 1 საგანმანათლებლო ექსკურსია მიღებული ცოდნის რეალობასთან დასაკავშირებლად.</li>
+</ul>
 `,
 registerText: 'რეგისტრაცია V-VI კლასის პროგრამაზე'
 },
 'vii-viii': {
 title: 'VII-VIII კლასის პროგრამა - „აზროვნების კიბე“',
 htmlContent: `
-<p>VII-VIII კლასების მოსწავლეებს სთავაზობს პროგრამას, რომელიც ავითარებს დამოუკიდებელ აზროვნებას, მსჯელობას, კომუნიკაციასა და გუნდური მუშაობის უნარებს.</p>
 <div class="price-section-box">
 <p style="margin-top: 0;"><strong>პროგრამის საფასური:</strong> 120 ლარი თვეში<br>
-<strong>სრული კურსი:</strong> 9 თვე - 72 შეხვედრა</p>
+<strong>სრული კურსი:</strong> 9 თვე - 72 შეხვედრა | 4 სავალდებულო და 3 არჩევითი ბლოკი | მინიმუმ 1 პროექტი.</p>
+
+<p style="font-weight: 700; margin-top: 15px;">ფასდაკლებები:</p>
+<ul>
+<li>სრული 9-თვიანი კურსის საფასურის ერთიანად გადახდისას - 20% ფასდაკლება;</li>
+<li>დედაშვილობის მონაწილეობისას - 30% ფასდაკლება.</li>
+</ul>
 </div>
+<p>VII-VIII კლასების მოსწავლეებს სთავაზობს პროგრამას, რომელიც ავითარებს დამოუკიდებელ აზროვნებას, მსჯელობას, კომუნიკაციასა და გუნდური მუშაობის უნარებს.</p>
+<p style="font-weight: 700; margin-top: 20px; color: var(--text-main);">რას მოიცავს პროგრამა?</p>
+<ul>
+<li><strong>სავალდებულო ძირითადი ბლოკი:</strong> წიგნის კითხვა და განხილვა, ფილმისა და სპექტაკლის ჩვენება-განხილვა, ინტელექტუალური და სამაგიდო თამაშები, დებატების სკოლა.</li>
+<li><strong>არჩევითი მიმართულებები:</strong> ონლაინ-მედიის კურსი, პროგრამირება და ხელოვნური ინტელექტი, გრაფიკული დიზაინი.</li>
+</ul>
 `,
 registerText: 'რეგისტრაცია VII-VIII კლასის პროგრამაზე'
 },
 'ix-x': {
 title: 'IX-X კლასის პროგრამა - შესაძლებლობების კიბე',
 htmlContent: `
-<p>IX-X კლასების მოსწავლეებს სთავაზობს პროფესიული ორიენტაციის, კრიტიკული აზროვნებისა და თანამედროვე ტექნოლოგიების შემცველ ყოვლისმომცველ პროგრამას.</p>
 <div class="price-section-box">
 <p style="margin-top: 0;"><strong>პროგრამის საფასური:</strong> 120 ლარი თვეში<br>
-<strong>სრული კურსი:</strong> 9 თვე - 72 შეხვედრა</p>
+<strong>სრული კურსი:</strong> 9 თვე - 72 შეხვედრა | 4 სავალდებულო და 3 არჩევითი ბლოკი | მინიმუმ 1 სამეწარმეო პროექტი.</p>
+
+<p style="font-weight: 700; margin-top: 15px;">ფასდაკლებები:</p>
+<ul>
+<li>სრული 9-თვიანი კურსის საფასურის ერთიანად გადახდისას - 20% ფასდაკლება;</li>
+<li>დედაშვილობის მონაწილეობისას - 30% ფასდაკლება.</li>
+</ul>
 </div>
+<p>IX-X კლასების მოსწავლეებს სთავაზობს პროფესიული ორიენტაციის, კრიტიკული აზროვნებისა და თანამედროვე ტექნოლოგიების შემცველ ყოვლისმომცველ პროგრამას.</p>
+<p style="font-weight: 700; margin-top: 20px; color: var(--text-main);">რას მოიცავს პროგრამა?</p>
+<ul>
+<li><strong>სავალდებულო ძირითადი ბლოკი:</strong> წიგნის კითხვა და განხილვა, ფილმისა და სპექტაკლის ჩვენება-განხილვა, ინტელექტკლუბი და სტრატეგიული სამაგიდო თამაშები, პროფესიული ორიენტაცია და მეწარმეობის საფუძვლები.</li>
+<li><strong>არჩევითი მიმართულებები:</strong> ონლაინ-მედიის კურსი, პროგრამირება და ხელოვნური ინტელექტი, გრაფიკული დიზაინი.</li>
+</ul>
 `,
 registerText: 'რეგისტრაცია IX-X კლასის პროგრამაზე'
 }
